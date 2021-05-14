@@ -598,3 +598,19 @@ Tao’s sharing on ES & CQRS
 
 ### count how many files there are in a directory
 + ```ls | wc -l```
+
+### ```df``` command ```-B``` option for output block size
++ to print output in GB
+  ```df -BG```
++ to print output in MB
+  ```df -BM```
+
+### How to display files sizes in MB in Linux/Ubuntu
++ To display the file sizes in units like 7K, 5M, 8.2G, etc. :
+  ```ls -lh```
++ To display the sizes rounded up to the nearest MiB (2^20 bytes): 
+  ``` ls -l --block-size=M ```
+  ``` ls -l --block-size=1M ```
++ To display the sizes in MB (10^6 bytes): 
+  ``` ls -l --block-size=MB ```
+
