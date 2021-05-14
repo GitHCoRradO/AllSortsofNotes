@@ -614,3 +614,7 @@ Tao’s sharing on ES & CQRS
 + To display the sizes in MB (10^6 bytes): 
   ``` ls -l --block-size=MB ```
 
+### How to get full path of a file in linux cli?
++ ```readlink -f filename```
++ ```realpath filename```  it is an external command (not a shell built-in) and may not be present in every system by default, i.e. you may need to install it.
+  + in OSX, ```realpath``` belongs to ```coreutil```; so install coreutil first: ```brew install coreutil```
