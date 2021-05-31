@@ -561,9 +561,9 @@ Tao’s sharing on ES & CQRS
 + access the PostgreSQL prompt
   ```psql```
 + Exit out of the PostgreSQL prompt by typing:
-  ```posgres=# \q```
+  ```postgres=# \q```
 + List Your PostgreSQL databases
-  ```posgres=# \list```
+  ```postgres=# \list```
   ``` output
                                      List of databases
        Name     |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges
@@ -578,11 +578,13 @@ Tao’s sharing on ES & CQRS
                 |          |          |             |             | postgres=CTc/postgres
   (6 rows)
   ```
++ Drop database:
+  ``` postgres=# DROP DATABASE IF EXISTS database_name;```
 + Switching Between Databases in PostgreSQL
   ```
-  posgres=# \connect fake_tbl3
+  postgres=# \connect fake_tbl3
   OR
-  posgres=# \c fake_tbl3
+  postgres=# \c fake_tbl3
   ```
   ```output
   You are now connected to database "fake_tbl3" as user "postgres".
@@ -618,3 +620,50 @@ Tao’s sharing on ES & CQRS
 + ```readlink -f filename```
 + ```realpath filename```  it is an external command (not a shell built-in) and may not be present in every system by default, i.e. you may need to install it.
   + in OSX, ```realpath``` belongs to ```coreutil```; so install coreutil first: ```brew install coreutil```
+
+### minikube add a local docker image
++ ```minikube cache add $local_image_name```
++ "minikube cache" will be deprecated in upcoming versions, please switch to 
+  ```minikube image load```
+
+### minikube check out images
++ ``` minikube image list```
+
+### kubectl delete pod
++ ```kubectl delete pod $pod_name```
+
+### kubectl Deleting (almost) all resources in a namespace
++ ``` kubectl delete all --all```
+
+### kubectl create pod from yaml file
++ ```kubectl create -f file_name.yaml```
+
+### kubectl get all pods
++ ``` kubectl get pods```
+
+### kubectl get all jobs
++ ``` kubectl get jobs```
++ trying to delete a pod which is a job causes another pod of the same job to be created and run
+  ``` kubectl delete pod $name_of_pod_of_Job```
++ by deleting some job, all corresponding pods of the job will be deleted as well:
+  ``` kubectl delete job $job_name```
++ in the job's yaml description
+
+
+### kubectl to view logs in a pod
++ ```kubectl logs $pod_name```
+
+### docker run command arg to automatically remove the container when it exits
++ ``` docker run --rm $image_name```
+
+### tmux commands
++ creating named sessions
+  ``` tmux new -s SESSION_NAME```
++ To detach from a current Tmux session, just press Ctrl+b and d. You don't need to press this both Keyboard shortcut at a time. First press "Ctrl+b" and then press "d".
++ To view the list of open Tmux sessions:
+  ``` tmux list```
++ creating detached sessions; creating a session and don't attach to it automatically.
+  ``` tmux new -s SESSION_NAME -d```
++ attach to a specify session:
+  ``` tmux attach -t SESSION_NAME```
+  ``` tmux a -t SESSION_NAME```
