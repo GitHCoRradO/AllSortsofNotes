@@ -667,3 +667,6 @@ Tao’s sharing on ES & CQRS
 + attach to a specify session:
   ``` tmux attach -t SESSION_NAME```
   ``` tmux a -t SESSION_NAME```
++ to kill a session:
+  ``` tmux kill-session -t SESSION_NAME```
++ to kill a session in attached mode, press Ctrl+b and x, then type y to confirm.
