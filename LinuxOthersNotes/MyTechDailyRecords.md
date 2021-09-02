@@ -670,3 +670,66 @@ Tao’s sharing on ES & CQRS
 + to kill a session:
   ``` tmux kill-session -t SESSION_NAME```
 + to kill a session in attached mode, press Ctrl+b and x, then type y to confirm.
+
+
+### kubectl logs continously print log to console
++ `kubectl logs -f $POD_NAME`
+
+### kubectl show label option
++ `kubectl get jobs --show-labels=true`
+
+### kubectl get jobs with some specific label
++ `kubectl get jobs -l $SOME_LABEL_NAME`
+
+### kubectl delete jobs with some specific label
++ `kubectl delete jobs -l $SOME_LABEL_NAME`
+
+### kubectl enter postgres pod
++ `kubectl exec -it postgresql-0 -n kube-system -- psql -U postgres`
++ or
+   + `kubectl exec -it postgresql-0 -n kube-system -- bash`
+   + in postgres pod
+   + `env | grep PASSWORD`
+
+### docker run enter a running image
++ `docker run --rm -it -v /host/path:/container/path $IMAGE_NAME bash`
+
+### tar command `tar -cvzf $DEST_FILE_NAME.tar.gz -C /path/to/src/directory .`
++ this command compresses files in /path/to/src/directory to DEST_FILE_NAME.tar.gz 
++ `-z` option tells `tar` to compress archive with gzip
+
+### psql drop several tabels
++ `DROP TABLE `
+
+### psql turn on or off expanded display
++ `postgres=# \x`  then psql prints: Expanded display is on.
++ when query tables records, they will be displayed vertically:
++ `\c SOME_DATABASE`
++ `select * from SOME_TABLE limit 2;`
+   ```
+   -[ RECORD 1 ]------------------------------------------
+   id         | 1
+   created_at | 2021-06-22 07:42:39.667342+00
+   updated_at | 2021-06-22 07:42:39.727877+00
+   deleted_at |
+   -[ RECORD 2 ]------------------------------------------
+   id         | 2
+   created_at | 2021-06-22 07:42:39.667342+00
+   updated_at | 2021-06-22 07:42:39.727877+00
+   deleted_at |
+   ```
+
+### linux cli delete characters until the last none space character
++ `ctrl + w`
+
+### kubectl sort pods by age
++ `kubectl get pods --sort-by=.metadata.creationTimestamp`
+
+### kubectl get watch option
+   ```
+   -w, --watch=false: After listing/getting the requested object, watch for changes. Uninitialized objects are excluded
+if no object name is provided.
+      --watch-only=false: Watch for changes to the requested object(s), without listing/getting first.
+   ```
+### `ls` `-h` option
++ When used with the -l option, use unit suffixes: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte in order to reduce the number of dig- its to three or less using base 2 for sizes.

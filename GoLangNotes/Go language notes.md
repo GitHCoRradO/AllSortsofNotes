@@ -164,3 +164,33 @@
 	  "createdAt": "2019-09-23T16:08:21.124481-04:00"
 	}
 	```
+
+#### slice operations
++ add elements to the head of a slice
+   ```
+   var a = []int{1, 2, 3}
+   a = append([]int{0}, a...)
+   a = append([]int{-3, -2, -1}, a...)
+   ```
++ insert elements at index i; this approach creates temporary slices(`append([]int{x}, a[i:]...)`)
+   ```
+   var a []int
+   a = append(a[:i], append([]int{x}, a[i:]...)...)
+
+   a = append(a[:i], append([]int{1, 2, 3}, a[i:]...)...)
+
+   ```
++ using `copy` to insert elements at index i, avoiding temporay slices created
+   ```
+   var a []int
+   a = append(a, 0)
+   copy(a[i+1:], a[i:])
+   a[i] = x   
+   ```
+   ```
+   var a []int
+   a = append(a, x...)	// x is another slice
+   copy(a[i+len(x):], a[i:])
+   copy(a[i:], x)
+   
+   ```
