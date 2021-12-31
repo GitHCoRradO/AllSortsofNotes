@@ -110,5 +110,9 @@ refer to [this SO problem](https://stackoverflow.com/questions/46429962/how-to-r
 	  }
 	```
 
++ `kubectl get pod -n spark-operator`
+
++ `kubectl get sparkapp`
+
 
 

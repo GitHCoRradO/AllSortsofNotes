@@ -727,9 +727,21 @@ Tao’s sharing on ES & CQRS
 
 ### kubectl get watch option
    ```
-   -w, --watch=false: After listing/getting the requested object, watch for changes. Uninitialized objects are excluded
-if no object name is provided.
+   -w, --watch=false: After listing/getting the requested object, watch for changes. Uninitialized objects are excluded if no object name is provided.
       --watch-only=false: Watch for changes to the requested object(s), without listing/getting first.
    ```
+
+
 ### `ls` `-h` option
 + When used with the -l option, use unit suffixes: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte in order to reduce the number of dig- its to three or less using base 2 for sizes.
+
+### List columns with indexes in PostgreSQL
++ `SELECT * FROM pg_indexes WHERE tablename = 'mytable';`
+
+### How do you list volumes in docker containers?
++ refer: https://stackoverflow.com/questions/30133664/how-do-you-list-volumes-in-docker-containers
++ `docker ps` to get container id
++ `docker inspect -f '{{ .Mounts }}' containerid`
+
+### maven run java application
++ `mvn exec:java -Dexec.mainClass="com.example.myapp.App"`
