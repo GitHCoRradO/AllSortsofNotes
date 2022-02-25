@@ -745,3 +745,13 @@ Tao’s sharing on ES & CQRS
 
 ### maven run java application
 + `mvn exec:java -Dexec.mainClass="com.example.myapp.App"`
+
+### git add a submodule to a sub-directory
++ refer: https://stackoverflow.com/questions/9035895/how-do-i-add-a-submodule-to-a-sub-directory
++ `git submodule add <git@github ...> relative-path/submodule-directory-name`
+
+### delete kubernetes resource with a name pattern
++ refer: https://faun.pub/delete-kubernetes-pods-with-a-regex-f396291bba0e
++ example:
+   + delete sparkapp in namespace org04 with name starting with 'spark-create'
+   + `kubectl get sparkapp -n org04 | awk '/spark-create/{print $1}' | xargs kubectl delete sparkapplications.sparkoperator.k8s.io -n org04`
